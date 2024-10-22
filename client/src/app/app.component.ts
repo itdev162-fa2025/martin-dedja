@@ -11,13 +11,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-  weatherForecast: any;
+  posts: any;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:5132/weatherforecast').subscribe({
-      next: (response) => this.weatherForecast = response,
+    this.http.get('http://localhost:5132/api/posts').subscribe({
+      next: (response) => this.posts = response,
       error: (error) => console.error(error),
       complete: () => console.log('complete')
     });
